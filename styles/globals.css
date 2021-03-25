@@ -1,16 +1,486 @@
-html,
+* {
+  box-sizing: border-box;
+}
+.header {
+  padding: 15px 0;
+  background: #eff3f3;
+}
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Lato", sans-serif;
+  background: #eff3f3;
 }
 
-a {
-  color: inherit;
+.navigation {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+  position: relative;
+}
+.navigation-item {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.8px;
+  color: #3c4148;
+  margin-left: 30px;
+}
+
+.navigation-item:hover,
+.navigation-item2:hover {
+  color: #38434f;
+}
+.navigation-item2 {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-right: 10px;
+  margin-left: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+
+  letter-spacing: 0.8px;
+  color: #939699;
+}
+.submenu {
+  list-style: none;
+  background: #eff3f3;
+  position: absolute;
+  margin-left: 0;
+  top: 100%;
+  z-index: 2;
+  width: 200px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: 0.5s ease-in-out;
+}
+
+.navigation > li:hover .submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.number {
+  color: #5d6077;
+  font-size: 12px;
+  line-height: 30px;
+  font-family: "Roboto Slab", serif;
+  position: absolute;
+  margin-left: 10px;
+}
+.link {
   text-decoration: none;
 }
 
-* {
+.slide {
+  padding-top: 90px;
+  padding-bottom: 110px;
+  min-height: 568px;
+}
+.slide-1 {
+  background: #eff3f3 url("/img/Subtract.svg") top center;
+  background-size: cover;
+  border: none;
+}
+
+form.example input[type="text"] {
+  float: left;
+  background: white;
+  font-family: "Lato", sans-serif;
+
+  text-align: left;
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  margin-right: 0;
+}
+form.example input[type="submit"]:focus,
+form.example input[type="text"]:focus,
+.slick-arrow {
+  outline: 0;
+}
+form.example input[type="submit"] {
+  color: #586380;
+  width: 52px;
+  height: 40px;
+  border: 0px;
+  background: #586380 url("/img/search.svg") no-repeat center;
+
+  transition: 0.8s linear;
+  cursor: pointer;
+  margin-left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+form.example input[type="submit"]:hover {
+  box-shadow: 150px 0 0 0 #9199b1 inset;
+}
+.collection-title {
+  font-size: 10px;
+  color: #262d33;
+  font-size: 20px;
+  line-height: 70px;
+  font-family: "Roboto Slab", serif;
+}
+
+.slide-title {
+  color: #262d33;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.slide-description {
+  font-size: 18px;
+  line-height: 30px;
+  color: #4b5157;
+  max-width: 335px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.slide-descriptions {
+  font-size: 18px;
+  line-height: 30px;
+  color: #4b5157;
+  max-width: 335px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  text-align: center;
+}
+.card-text.large {
+  max-width: 320px;
+}
+.text-light {
+  color: white;
+}
+
+.section-title {
+  font-family: "Roboto Slab", serif;
+
+  font-size: 25px;
+  line-height: 30px;
+
+  color: #262d33;
+}
+.more {
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #262d33;
+  padding: 10px;
+}
+.goods-card {
+  position: relative;
+
+  text-align: center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+.goods-card:hover {
+  background: #dde1ed;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+.labels {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  background: #8bb093;
+  border-radius: 3px;
+  padding: 5px 12px;
+  color: white;
+  font-size: 12px;
+  line-height: 15px;
+}
+.goods-title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #262d33;
+  font-size: 16px;
+  line-height: 25px;
+  font-family: "Roboto Slab", serif;
+}
+.goods-description {
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #4b5157;
+}
+.goods-price {
+  font-size: 18px;
+  line-height: 30px;
+  color: #262d33;
+  margin-top: 30px;
+  font-weight: 900;
+}
+.footer-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  background: #666e97;
+  padding-top: 45px;
+  padding-bottom: 40px;
+  color: white;
+}
+.footer-menu-item:not(:last-child) {
+  margin-right: 40px;
+}
+.footer-menu-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 20px;
+}
+.social-link {
+  margin-left: 15px;
+}
+.footer-text {
+  color: #e7d9ff;
+  font-size: 14px;
+  line-height: 20px;
+}
+.footer-line {
+  opacity: 0.5;
+}
+.top-link {
+  text-decoration: none;
+  color: white;
+}
+.top-link-text {
+  margin-right: 15px;
+}
+.payment-logo {
+  vertical-align: middle;
+  margin-right: 25px;
+}
+
+@media (max-width: 992px) {
+  .slider-nav {
+    display: none;
+  }
+}
+@media (max-width: 576px;) {
+  .slide-title {
+    font-size: 36px;
+    line-height: 1.4;
+  }
+}
+
+/* Основные стили */
+
+/* Слайдер */
+.slider-item {
+  min-width: 0;
+  outline: none;
+  margin-left: 20px;
+}
+
+/* Ограничивающая оболочка */
+.slick-list {
+  overflow: hidden; /*убирает лишнее*/
+}
+/* в ряд */
+.slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slick-dots li {
+  list-style: none;
+  margin-right: 30px;
+}
+.slick-dots button {
+  outline: none;
+  font-size: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #c3c3cf;
+  border: none;
+  cursor: pointer;
+}
+.slick-dots li.slick-active button {
+  background: #6c6c8c;
+  transform: translateY(-50%);
+  outline: none;
+}
+.slider-image {
+  min-width: 0;
+  outline: none;
+  border-radius: 2px solid red;
+}
+.slider-2 .slick-arrow {
+  /*размещение кнопок*/
+
+  top: 50%;
+
+  margin: -30px 15px 15px 15px;
+
+  font-size: 0;
+  width: 30px;
+  height: 60px;
+  border: none;
+}
+
+.slick-arrow.slick-prev {
+  left: 47%;
+  background: red url("/img/Arrow-prev.svg") 0 0 / 100% no-repeat;
+  cursor: pointer;
+}
+.slick-arrow.slick-next {
+  right: 0;
+  background: url("/img/sl-arrow_r.svg") 0 0 / 100% no-repeat;
+  cursor: pointer;
+}
+.price {
+  font-size: 20px;
+  cursor: pointer;
+}
+.sliditems {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+/* Full-width input fields */
+.logs {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
   box-sizing: border-box;
+  outline: none;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/* Set a style for all buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
