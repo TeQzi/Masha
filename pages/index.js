@@ -3,8 +3,19 @@ import Header from '../component/header'
 import Slide from '../component/slide'
 import Books from '../component/books'
 import Footer from '../component/footer'
+import { PrismaClient } from "@prisma/client";
 
-export default function Home() {
+const prisma = new PrismaClient()
+
+
+export async function getStaticProps() {
+  const bookInfo = await prisma.book.findMany()
+
+  return {
+      props: { bookInfo }
+  }
+}
+export default function Home({bookInfo}) {
   return (
     <>
       <Head>
@@ -22,24 +33,24 @@ export default function Home() {
 
       </Head>
 
-      <Header> </Header>
+      <Header></Header>
 
       <Slide>
-        <div class="container pt-5 pb-4">
-          <div class="row "  >
-            <div class="col-12 d-flex justify-content-center">
-              <h3 class="section-title ">Новинки</h3>
+        <div className="container pt-5 pb-4">
+          <div className="row "  >
+            <div className="col-12 d-flex justify-content-center">
+              <h3 className="section-title ">Новинки</h3>
             </div>
           </div>
-          <div class="row ">
-            <div class="col-12 d-flex justify-content-center">
-              <a href="#" class="link slide-description  ">Смотреть все</a>
+          <div className="row ">
+            <div className="col-12 d-flex justify-content-center">
+              <a href="#" className="link slide-description  ">Смотреть все</a>
             </div>
           </div>
         </div>
       </Slide>
 
-      <Books> </Books>
+      <Books bookInfo={bookInfo}> </Books>
 
       <Footer></Footer>
     </>
