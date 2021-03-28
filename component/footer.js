@@ -16,7 +16,7 @@ export default function Footer(params) {
                     <div className="col-lg-3 d-flex align-items-center">
                         <span className="footer-text">Связаться с нами</span>
                         <span className="footer-social">
-                            <a href="#" className="social-link"> <img src="img/email.svg" alt="Facebook" /></a>
+                            <a href="#" className="social-link"> <img src="/img/email.svg" alt="Facebook" /></a>
                         </span>
                     </div>
                     <div className="col-xl-2 col-lg-3 d-flex justify-content-lg-end mt-4 mt-lg-0">
@@ -26,14 +26,14 @@ export default function Footer(params) {
                 <hr className="footer-line mt-4 mb-4" color="white" size={1} />
                 <div className="row justify-content-between">
                     <div className="col-4">
-                        <img className="payment-logo" src="img/visa.png" alt="visa logo" />
-                        <img className="payment-logo" src="img/master-card.png" alt="master-card" />
-                        <img className="payment-logo" src="img/paypal.png" alt="paypal" />
+                        <img className="payment-logo" src="/img/visa.png" alt="visa logo" />
+                        <img className="payment-logo" src="/img/master-card.png" alt="master-card" />
+                        <img className="payment-logo" src="/img/paypal.png" alt="paypal" />
                     </div>
                     <div className="col-lg-2 col-sm-1 d-flex justify-content-end">
                         <a href="#" className="top-link d-flex align-items-center">
                             <span className="top-link-text">Top</span>
-                            <img src="img/top.png" alt="top" />
+                            <img src="/img/top.png" alt="top" />
                         </a>
                     </div>
                 </div>

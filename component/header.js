@@ -4,8 +4,8 @@ export default function Header() {
             <header className="container header px-4 px-md-0">
                 <div className="row justify-content-between align-items-center" >
                     <div className="col-lg-2 col-6">
-                        <a href="#/" className="logo-link">
-                            <img width="128" src="img/logo.svg" alt="logo" className="logo-image" />
+                        <a href="/" className="logo-link">
+                            <img width="128" src="/img/logo.svg" alt="logo" className="logo-image" />
                         </a>
                     </div>
                     <div className="col-lg-7 d-none d-lg-block" >
@@ -46,7 +46,7 @@ export default function Header() {
 
                         <div className="user">
                             <button onClick="document.getElementById('id01').style.display='block'">
-                                <img className="button-icon" src="img/Union.svg" alt="icon" />
+                                <img className="button-icon" src="/img/Union.svg" alt="icon" />
                             </button>
                             <div id="id01" className="modal">
 
@@ -82,7 +82,7 @@ export default function Header() {
                                 </form>
                             </div>
                             <a href="" className="link">
-                                <img className="button-icon" src="img/Cart.svg" alt="icon" />
+                                <img className="button-icon" src="/img/Cart.svg" alt="icon" />
                             </a>
                             <span className="number">8(908)086-02-38</span>
                         </div>

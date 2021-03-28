@@ -1,3 +1,6 @@
+import Link from 'next/link';
+
+
 export default function BookItem({ bookInfo, stat }) {
     const bookCorrect = bookInfo.filter(({ status }) => {
         if (stat == status) {
@@ -6,17 +9,21 @@ export default function BookItem({ bookInfo, stat }) {
         return null
     })
 
-    const book = bookCorrect.map(({ nameBook, price, author, path_img, status }) =>
-    <div className="slider-item">
-        <div className="goods-card">
-            <span className=" labels">{status}</span>
-            <img src={"img/" + path_img + ".png"} alt="hoodie" className="goods-image" />
-            <h3 className="goods-title">{nameBook}</h3>
-            <p className="goods-description">{author}</p>
-            <span className="goods-price">{price}₽</span>
+    const book = bookCorrect.map(({ nameBook, price, author, path_img, status, href_name }) =>
+        <div className="slider-item">
+            <Link href={`/book/${href_name}`}>
+                <a>
+                    <div className="goods-card">
+                        <span className=" labels">{status}</span>
+                        <img src={"img/" + path_img + ".png"} alt="hoodie" className="goods-image" />
+                        <h3 className="goods-title">{nameBook}</h3>
+                        <p className="goods-description">{author}</p>
+                        <span className="goods-price">{price}₽</span>
+                    </div>
+                </a>
+            </Link>
         </div>
-    </div>
-)
+    )
     return (
         <div className="row ">
             <div className="col-12">

@@ -456,6 +456,15 @@ span.psw {
   animation: animatezoom 0.6s;
 }
 
+.nameTovar {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #262d33;
+  font-size: 30px;
+  line-height: 25px;
+  font-family: "Roboto Slab", serif;
+  }
+
 @-webkit-keyframes animatezoom {
   from {
     -webkit-transform: scale(0);

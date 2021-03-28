@@ -16,4 +16,5 @@ model Book {
   price      Float
   path_img   String
   status     String?
+  href_name  String?
 }
