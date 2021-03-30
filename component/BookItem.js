@@ -10,7 +10,7 @@ export default function BookItem({ bookInfo, stat }) {
     })
 
     const book = bookCorrect.map(({ nameBook, price, author, path_img, status, href_name }) =>
-        <div className="slider-item">
+        <div className="slider-item" key={path_img}>
             <Link href={`/book/${href_name}`}>
                 <a>
                     <div className="goods-card">

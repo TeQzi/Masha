@@ -45,14 +45,14 @@ export default function Header() {
                     <div className="col-3 d-flex justify-content-around">
 
                         <div className="user">
-                            <button onClick="document.getElementById('id01').style.display='block'">
+                            <button>
                                 <img className="button-icon" src="/img/Union.svg" alt="icon" />
                             </button>
                             <div id="id01" className="modal">
 
                                 <form className="modal-content animate" action="/action_page.php">
                                     <div className="imgcontainer">
-                                        <span onClick="document.getElementById('id01').style.display='none'" className="close"
+                                        <span className="close"
                                             title="Close Modal">×</span>
 
                                     </div>
@@ -66,7 +66,7 @@ export default function Header() {
 
                                         <button type="submit" className='logs'>Войти</button>
                                         <label>
-                                            <input type="checkbox" checked="checked" onChange="" name="remember" /> Запомнить меня
+                                            <input type="checkbox" name="remember" /> Запомнить меня
                                     </label>
                                         <span className="psw">Забыли <a href="#">пароль?</a></span>
                                     </div>
