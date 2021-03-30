@@ -1,6 +1,6 @@
 
-import BookItem from '../component/BookItem'
-import BookHeader from '../component/BookHeader'
+import BooksList from './BooksList'
+import BookHeader from './BookHeader'
 
 export default function Books({ bookInfo }) {
     return (
@@ -9,19 +9,19 @@ export default function Books({ bookInfo }) {
                 <BookHeader name="Новинки"/> 
             </div>
             <div className="container">
-                <BookItem bookInfo={bookInfo} stat="Новинка" />
+                <BooksList bookInfo={bookInfo} stat="Новинка" />
             </div>
             <div className="container pb-4">
                 <BookHeader name="Бестселлеры"/> 
             </div>
             <div className="container">
-                <BookItem bookInfo={bookInfo} stat="Бестселлер" />
+                <BooksList bookInfo={bookInfo} stat="Бестселлер" />
             </div>
             <div className="container  pb-4">
                 <BookHeader name="Популярное" /> 
             </div>
             <div className="container mb-4">
-                <BookItem bookInfo={bookInfo} stat="Популярное" />
+                <BooksList bookInfo={bookInfo} stat="Популярное" />
             </div>
         </>
 

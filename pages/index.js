@@ -1,22 +1,12 @@
 import Head from 'next/head'
 import Header from '../component/header'
 import Slide from '../component/slide'
-import Books from '../component/books'
+import Books from '../component/Books'
 import Footer from '../component/footer'
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
-
-export async function getStaticProps() {
-  const bookInfo = await prisma.book.findMany()
-  const genresList = await prisma.genre.findMany()   
-                   
-
-  return {
-      props: { bookInfo, genresList }
-  }
-}
 export default function Home({bookInfo, genresList}) {
   return (
     <>
@@ -32,30 +22,24 @@ export default function Home({bookInfo, genresList}) {
         <script src="/js/script.js"></script>
         <script src="/js/modal.js"></script>
         <title>Willberries</title>
-
       </Head>
 
       <Header genresList={genresList}></Header>
-
-      <Slide>
-        <div className="container pt-5 pb-4">
-          <div className="row "  >
-            <div className="col-12 d-flex justify-content-center">
-              <h3 className="section-title ">Новинки</h3>
-            </div>
-          </div>
-          <div className="row ">
-            <div className="col-12 d-flex justify-content-center">
-              <a href="#" className="link slide-description  ">Смотреть все</a>
-            </div>
-          </div>
-        </div>
-      </Slide>
-
+      <Slide />
       <Books bookInfo={bookInfo}> </Books>
-
-      <Footer></Footer>
+      <Footer />
+      
     </>
 
   )
+}
+
+export async function getStaticProps() {
+  const bookInfo = await prisma.book.findMany()
+  const genresList = await prisma.genre.findMany()   
+                   
+
+  return {
+      props: { bookInfo, genresList }
+  }
 }

@@ -1,18 +1,12 @@
 import { useRouter } from 'next/router'
+import { PrismaClient } from "@prisma/client";
 import Header from '../component/header'
 import Footer from '../component/footer'
-import { PrismaClient } from "@prisma/client";
+import BookItem from '../component/BookItem'
+
 const prisma = new PrismaClient()
-import Link from "next/link"
 
-
-export async function getStaticProps() {
-    const bookInfo = await prisma.book.findMany()
-    return {
-        props: { bookInfo }
-    }
-}
-export default function Search({ bookInfo }) {
+export default function Search({ bookInfo, allGenre }) {
     const router = useRouter()
     const value = router.query.q
     const bookCorrect = bookInfo.filter(({ nameBook }) => {
@@ -21,23 +15,23 @@ export default function Search({ bookInfo }) {
         }
         return null
     })
-    const result = bookCorrect.map(({nameBook, price, author, path_img, status, href_name }) =>
-    <Link href={`/book/${href_name}`}>
-                <a>
-                    <div className="goods-card">
-                        <span className=" labels">{status}</span>
-                        <img src={"/img/" + path_img + ".png"} alt="hoodie" className="goods-image" />
-                        <h3 className="goods-title">{nameBook}</h3>
-                        <p className="goods-description">{author}</p>
-                        <span className="goods-price">{price}₽</span>
-                    </div>
-                </a>
-            </Link>)
+    const result = bookCorrect.map(({ id, nameBook, price, author, path_img, status, href_name }) =>
+        <div key={id}>
+            <BookItem nameBook={nameBook} price={price} author={author} path_img={path_img} status={status} href_name={href_name} />
+        </div>)
     return (
         <>
-            <Header />
+            <Header genresList={allGenre} />
             <h1> Результаты по поиску {value}</h1>
             {result}
             <Footer />
         </>)
+}
+
+export async function getStaticProps() {
+    const bookInfo = await prisma.book.findMany()
+    const allGenre = await prisma.genre.findMany()
+    return {
+        props: { bookInfo, allGenre }
+    }
 }

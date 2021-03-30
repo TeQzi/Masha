@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Genres({ genresList }) {
 
     const genresItem = genresList.map(({ genre_name, href_name }) =>
-        <li>
+        <li key={href_name}>
             <Link href={`/genre/${href_name}`}>
                 <a className="navigation-item2">{genre_name}</a>
             </Link>

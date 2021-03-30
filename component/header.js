@@ -1,7 +1,7 @@
 import Genres from '../component/genres'
 
 export default function Header({ genresList }) {
-    
+
     return (
         <>
             <header className="container header px-4 px-md-0">
@@ -14,7 +14,7 @@ export default function Header({ genresList }) {
                     <div className="col-lg-7 d-none d-lg-block" >
                         <nav>
                             <ul className="navigation d-flex justify-content-around">
-                                <Genres genresList={genresList}/>
+                                <Genres genresList={genresList} />
                                 <li>
                                     <a href="stuff.html" className="navigation-item"> Новинки</a>
                                 </li>

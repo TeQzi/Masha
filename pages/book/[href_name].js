@@ -30,6 +30,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const Books = await prisma.book.findMany();
+    console.log(Books)
     const paths = getAllBookHrefs(Books)
 
     return {
@@ -47,23 +48,17 @@ export default function BookInfo({ currentBook, allGenre }) {
                 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet" />
-
                 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet" />
-
-
-                <link rel="stylesheet" href="css/bootstrap-grid.min.css " />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-                <link rel="stylesheet" href="css/style.css" />
             </Head>
             <Header genresList={allGenre}/>
-            <section class="slide slide-1 swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
+            <section className="slide slide-1 swiper-slide">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-4">
 
                         </div>
-                        <div class="col-3">
+                        <div className="col-3">
                             <Image
                                 priority
                                 src={`/img/${currentBook[0].path_img}.png`}
@@ -73,24 +68,24 @@ export default function BookInfo({ currentBook, allGenre }) {
                                 alt="Text T-Shirt"
                             />
                         </div>
-                        <div class="col-lg-4 col-9-xl">
-                            <h3 class='nameTovar'>{currentBook[0].nameBook}</h3>
-                            <p class="goods-description">{currentBook[0].author}</p>
-                            <p class="goods-description">{currentBook[0].price}</p>
-                            <p class="goods-description">Издательство: {currentBook[0].publishing}</p>
-                            <p class="goods-description">Количесвто страниц:464</p>
-                            <p class="goods-description">Описание: Жила была и умерла</p>
-                            <a href="" class="link">
+                        <div className="col-lg-4 col-9-xl">
+                            <h3 className='nameTovar'>{currentBook[0].nameBook}</h3>
+                            <p className="goods-description">{currentBook[0].author}</p>
+                            <p className="goods-description">{currentBook[0].price}P</p>
+                            <p className="goods-description">Издательство: {currentBook[0].publishing}</p>
+                            <p className="goods-description">Количесвто страниц:464</p>
+                            <p className="goods-description">Описание: Жила была и умерла</p>
+                            <a href="" className="link">
                                 KУПИТЬ
                             </a>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-4">
+                    <div className="row">
+                        <div className="col-4">
 
                         </div>
-                        <div class="col-lg-4  d-flex justify-content-center ">
+                        <div className="col-lg-4  d-flex justify-content-center ">
 
                         </div>
                     </div>
