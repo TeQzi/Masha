@@ -11,10 +11,17 @@ model Book {
   id         Int     @id @default(autoincrement())
   nameBook   String
   author     String
-  genre      String
+  genre      String?
   publishing String
   price      Float
   path_img   String
   status     String?
   href_name  String?
+  Genre      Genre?  @relation(fields: [genre], references: [genre_name])
+}
+
+model Genre {
+  genre_name String  @id
+  href_name  String?
+  Book       Book[]
 }

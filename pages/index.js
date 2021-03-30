@@ -10,12 +10,14 @@ const prisma = new PrismaClient()
 
 export async function getStaticProps() {
   const bookInfo = await prisma.book.findMany()
+  const genresList = await prisma.genre.findMany()   
+                   
 
   return {
-      props: { bookInfo }
+      props: { bookInfo, genresList }
   }
 }
-export default function Home({bookInfo}) {
+export default function Home({bookInfo, genresList}) {
   return (
     <>
       <Head>
@@ -33,7 +35,7 @@ export default function Home({bookInfo}) {
 
       </Head>
 
-      <Header></Header>
+      <Header genresList={genresList}></Header>
 
       <Slide>
         <div className="container pt-5 pb-4">

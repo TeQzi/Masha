@@ -8,7 +8,6 @@ import Link from "next/link"
 
 export async function getStaticProps() {
     const bookInfo = await prisma.book.findMany()
-    console.log(bookInfo)
     return {
         props: { bookInfo }
     }
@@ -27,7 +26,7 @@ export default function Search({ bookInfo }) {
                 <a>
                     <div className="goods-card">
                         <span className=" labels">{status}</span>
-                        <img src={"img/" + path_img + ".png"} alt="hoodie" className="goods-image" />
+                        <img src={"/img/" + path_img + ".png"} alt="hoodie" className="goods-image" />
                         <h3 className="goods-title">{nameBook}</h3>
                         <p className="goods-description">{author}</p>
                         <span className="goods-price">{price}₽</span>

@@ -17,13 +17,14 @@ export function getAllBookHrefs(Book) {
 const prisma = new PrismaClient()
 
 export async function getStaticProps({ params }) {
+    const allGenre = await prisma.genre.findMany()
     const currentBook = await prisma.book.findMany({
         where: {
             'href_name': params.href_name
         }
     });
     return {
-        props: { currentBook }
+        props: { currentBook, allGenre }
     }
 }
 
@@ -37,7 +38,7 @@ export async function getStaticPaths() {
     }
 }
 
-export default function BookInfo({ currentBook }) {
+export default function BookInfo({ currentBook, allGenre }) {
     
     return (
         <>
@@ -55,7 +56,7 @@ export default function BookInfo({ currentBook }) {
 
                 <link rel="stylesheet" href="css/style.css" />
             </Head>
-            <Header />
+            <Header genresList={allGenre}/>
             <section class="slide slide-1 swiper-slide">
                 <div class="container">
                     <div class="row">

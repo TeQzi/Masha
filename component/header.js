@@ -1,4 +1,7 @@
-export default function Header() {
+import Genres from '../component/genres'
+
+export default function Header({ genresList }) {
+    
     return (
         <>
             <header className="container header px-4 px-md-0">
@@ -11,21 +14,7 @@ export default function Header() {
                     <div className="col-lg-7 d-none d-lg-block" >
                         <nav>
                             <ul className="navigation d-flex justify-content-around">
-                                <li >
-                                    <a href="#/" className="navigation-item"> ЖAHP</a>
-                                    <ul className="submenu">
-                                        <li ><a href="" className="navigation-item2">Зарубежная классика </a></li>
-
-                                        <li><a href="" className="navigation-item2">Русская классика</a></li>
-                                        <li><a href="" className="navigation-item2">Любовные романы</a></li>
-                                        <li><a href="" className="navigation-item2">Детективы</a></li>
-                                        <li><a href="" className="navigation-item2">Ужасы,Мистика</a></li>
-                                        <li><a href="" className="navigation-item2">Детективы</a></li>
-                                        <li><a href="" className="navigation-item2">Психология</a></li>
-                                        <li><a href="" className="navigation-item2">Комиксы</a></li>
-                                        <li><a href="" className="navigation-item2">Бизнес-книги</a></li>
-                                    </ul>
-                                </li>
+                                <Genres genresList={genresList}/>
                                 <li>
                                     <a href="stuff.html" className="navigation-item"> Новинки</a>
                                 </li>
