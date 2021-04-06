@@ -11,7 +11,7 @@ export default function Genres({ genresList }) {
 
     return (
         <li>
-            <a href="#/" className="navigation-item">ЖAHP</a>
+            <a href="#/" className="navigation-item">ЖAHPЫ</a>
             <ul className="submenu">
                 {genresItem}
             </ul>

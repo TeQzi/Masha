@@ -1,6 +1,7 @@
 import Genres from '../component/genres'
-
-export default function Header({ genresList }) {
+import Link from 'next/link'
+import cookie from 'js-cookie';
+export default function Header({ genresList, username, revalidate, isAdmin}) {
 
     return (
         <>
@@ -15,17 +16,23 @@ export default function Header({ genresList }) {
                         <nav>
                             <ul className="navigation d-flex justify-content-around">
                                 <Genres genresList={genresList} />
+
                                 <li>
-                                    <a href="stuff.html" className="navigation-item"> Новинки</a>
+                                    {username && <span> Здраствуйте, {username}
+                                        <button
+                                            onClick={() => {
+                                                cookie.remove('token');
+                                                revalidate();
+                                            }}>
+                                            (Выйти)
+                                        </button>
+                                    </span>}
                                 </li>
                                 <li >
-                                    <a href="#/" className="navigation-item">Бестселлеры</a>
-                                </li>
-                                <li >
-                                    <a href="#/" className="navigation-item"> Популярное</a>
-                                </li>
-                                <li>
-                                    <a href="#/" className="navigation-item">О нас</a>
+                                    {isAdmin &&
+                                        <Link href="/admin-panel">
+                                            <a> Админ-панель </a></Link>
+                                    }
                                 </li>
 
                             </ul>
@@ -34,41 +41,14 @@ export default function Header({ genresList }) {
                     <div className="col-3 d-flex justify-content-around">
 
                         <div className="user">
-                            <button>
-                                <img className="button-icon" src="/img/Union.svg" alt="icon" />
-                            </button>
+                            <Link href="/login">
+                                <button>
+                                    <img className="button-icon" src="/img/Union.svg" alt="icon" />
+                                </button>
+                            </Link>
                             <div id="id01" className="modal">
 
-                                <form className="modal-content animate" action="/action_page.php">
-                                    <div className="imgcontainer">
-                                        <span className="close"
-                                            title="Close Modal">×</span>
 
-                                    </div>
-
-                                    <div className="container">
-                                        <label htmlFor="uname"><b>Имя пользователя</b></label>
-                                        <input className='logs' type="text" placeholder="Введите имя пользователя" name="uname" required />
-
-                                        <label htmlFor="psw"><b>Пароль</b></label>
-                                        <input className='logs' type="password" placeholder="Введите пароль" name="psw" required />
-
-                                        <button type="submit" className='logs'>Войти</button>
-                                        <label>
-                                            <input type="checkbox" name="remember" /> Запомнить меня
-                                    </label>
-                                        <span className="psw">Забыли <a href="#">пароль?</a></span>
-                                    </div>
-
-                                    <div className="container">
-                                        <style jsx>{`
-                                .container {
-                                    background-color:#f1f1f1;
-                                }
-                                        `}</style>
-
-                                    </div>
-                                </form>
                             </div>
                             <a href="" className="link">
                                 <img className="button-icon" src="/img/Cart.svg" alt="icon" />

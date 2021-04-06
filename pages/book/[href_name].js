@@ -30,7 +30,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const Books = await prisma.book.findMany();
-    console.log(Books)
     const paths = getAllBookHrefs(Books)
 
     return {

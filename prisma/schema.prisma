@@ -25,3 +25,9 @@ model Genre {
   href_name  String?
   Book       Book[]
 }
+
+model User {
+  login    String  @id
+  password String
+  isAdmin  Boolean @default(false)
+}
