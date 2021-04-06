@@ -1,7 +1,18 @@
 import Genres from '../component/genres'
 import Link from 'next/link'
 import cookie from 'js-cookie';
-export default function Header({ genresList, username, revalidate, isAdmin}) {
+import useSWR from 'swr';
+export default function Header({ genresList}) {
+    const { data, revalidate } = useSWR('/api/me', async function (args) {
+        const res = await fetch(args);
+        return res.json();
+      });
+      if (!data) return <h1>Загрузка...</h1>;
+      let loggedIn = false;
+      if (data.password) {
+        loggedIn = true;
+      }
+      
 
     return (
         <>
@@ -18,7 +29,7 @@ export default function Header({ genresList, username, revalidate, isAdmin}) {
                                 <Genres genresList={genresList} />
 
                                 <li>
-                                    {username && <span> Здраствуйте, {username}
+                                    {data.username && <span> Здраствуйте, {data.username}
                                         <button
                                             onClick={() => {
                                                 cookie.remove('token');
@@ -29,7 +40,7 @@ export default function Header({ genresList, username, revalidate, isAdmin}) {
                                     </span>}
                                 </li>
                                 <li >
-                                    {isAdmin &&
+                                    {data.isAdmin &&
                                         <Link href="/admin-panel">
                                             <a> Админ-панель </a></Link>
                                     }
