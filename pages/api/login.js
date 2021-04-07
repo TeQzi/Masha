@@ -7,7 +7,7 @@ export default async function handle(req, res) {
   const prisma = new PrismaClient;
   const username = req.body.name
   const password = req.body.password
-  
+  console.log(username)
   const searchUser = await prisma.user.findUnique({
     where: {
       'login': username
