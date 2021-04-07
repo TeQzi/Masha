@@ -14,7 +14,7 @@ export default function AllBooks({ bookInfo, allGenre }) {
     return (
         <>
             <Header genresList={allGenre} />
-            <h1> Hello </h1>
+            <h1> Все книги на сайте </h1>
 
             {Books}
             <Footer />

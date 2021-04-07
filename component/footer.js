@@ -6,9 +6,9 @@ export default function Footer(params) {
                     <div className="col-xl-7 mb-4 mb-xl-0">
                         <nav>
                             <ul className="footer-menu d-sm-flex">
-                                <li className="footer-menu-item"><a href="#" className="footer-menu-link">Новинки</a></li>
-                                <li className="footer-menu-item"><a href="#" className="footer-menu-link">Бестселлеры</a></li>
-                                <li className="footer-menu-item"><a href="#" className="footer-menu-link">Популярное</a> </li>
+                                <li className="footer-menu-item"><a href="/allbooks" className="footer-menu-link">Новинки</a></li>
+                                <li className="footer-menu-item"><a href="/allbooks" className="footer-menu-link">Бестселлеры</a></li>
+                                <li className="footer-menu-item"><a href="/allbooks" className="footer-menu-link">Популярное</a> </li>
                                 <li className="footer-menu-item"><a href="#" className="footer-menu-link">О нас</a></li>
                             </ul>
                         </nav>

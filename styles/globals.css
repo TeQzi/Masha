@@ -187,6 +187,10 @@ form.example input[type="submit"]:hover {
   color: #262d33;
   padding: 10px;
 }
+.slider-1{
+  display: flex;
+}
+
 .goods-card {
   position: relative;
 
