@@ -8,7 +8,7 @@ export default async function handle(req, res) {
   const username = req.body.name
   const password = req.body.password
   console.log(username)
-  const searchUser = await prisma.user.findUnique({
+  const searchUser = await prisma.user.findMany({
     where: {
       'login': username
     }
@@ -21,8 +21,8 @@ if (!searchUser) {
   return;
 }
 
-  if (password == searchUser.password) {
-    const isAdmin = searchUser.isAdmin
+  if (password == searchUser[0].password) {
+    const isAdmin = searchUser[0].isAdmin
     const token = jwt.sign(
       { username: username, password: password, isAdmin: isAdmin },
       jwtSecret,
