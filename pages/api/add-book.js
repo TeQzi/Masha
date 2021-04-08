@@ -31,7 +31,6 @@ export default async function handle(req, res) {
         }
     })
 
-    console.log(searchHref, searchStatus, searchGenre)
     if (!searchGenre.length) {
         res.status(404).json({error: true, message: 'Такого жанра не существует' });
         return;

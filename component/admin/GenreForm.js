@@ -20,7 +20,6 @@ export default function AddGenre() {
                 return r.json();
             })
             .then((data) => {
-                console.log(data)
                 if (data && data.error) {
                     setAddMsg(data.message);
 
