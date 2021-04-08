@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client'
 
 export default async function handle(req, res) {
   const prisma = new PrismaClient;
-  console.log(req.body)
+
   const username = req.body.name
   const password = req.body.password
   const isAdmin = req.body.isAdmin

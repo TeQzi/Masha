@@ -1,4 +1,4 @@
-import BookItem from '../component/BookItem'
+import BookItem from './BookItem'
 
 export default function BooksList({ bookInfo, stat }) {
     const bookCorrect = bookInfo.filter(({ status }) => {

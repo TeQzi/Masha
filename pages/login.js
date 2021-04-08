@@ -1,6 +1,7 @@
 import Router from 'next/router';
 import cookie from 'js-cookie';
 import React, { useState } from 'react';
+import Link from 'next/link'
 
 export default function Login() {
     const [loginError, setLoginError] = useState('');
@@ -38,9 +39,10 @@ export default function Login() {
     return (
         <form className="modal-content animate" onSubmit={registerUser}>
             <div className="imgcontainer">
+            <Link href="/">
                 <span className="close"
                     title="Close Modal">×</span>
-
+            </Link>
             </div>
 
             <div className="container">

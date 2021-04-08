@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { PrismaClient } from "@prisma/client";
 import Header from '../component/header'
 import Footer from '../component/footer'
-import BookItem from '../component/BookItem'
+import BookItem from '../component/book/BookItem'
 
 const prisma = new PrismaClient()
 

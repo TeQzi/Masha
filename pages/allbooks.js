@@ -1,7 +1,7 @@
 import Header from "../component/header"
 import Footer from "../component/footer"
 import { PrismaClient } from "@prisma/client";
-import BookItem from '../component/BookItem'
+import BookItem from '../component/book/BookItem'
 
 const prisma = new PrismaClient()
 

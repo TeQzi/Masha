@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '../component/header'
 import Slide from '../component/slide'
-import Books from '../component/Books'
+import Books from '../component/book/Books'
 import Footer from '../component/footer'
 import { PrismaClient } from "@prisma/client";
 import fetch from 'isomorphic-unfetch';

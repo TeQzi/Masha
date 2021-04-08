@@ -4,7 +4,7 @@ import Head from "next/head"
 import Image from "next/image"
 import { PrismaClient } from "@prisma/client";
 import Link from 'next/link'
-import BookItem from '../../component/BookItem'
+import BookItem from '../../component/book/BookItem'
 
 const prisma = new PrismaClient()
 
@@ -17,7 +17,6 @@ export function getAllGenresHrefs(Genre) {
         }
     })
 }
-
 
 export async function getStaticProps({ params }) {
     const allGenre = await prisma.genre.findMany()
