@@ -3,6 +3,7 @@ import Footer from "../../component/footer"
 import Head from "next/head"
 import Image from "next/image"
 import { PrismaClient } from "@prisma/client";
+import Link from 'next/link'
 
 export function getAllBookHrefs(Book) {
     return Book.map(({ href_name }) => {
@@ -36,7 +37,7 @@ export async function getStaticPaths() {
         paths,
         fallback: false
     }
-}
+} 
 
 export default function BookInfo({ currentBook, allGenre }) {
     
